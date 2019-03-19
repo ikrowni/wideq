@@ -2430,7 +2430,7 @@ class WasherStatus(object):
 
     @property
     def water_temp_option_state(self):
-        water_temp = self.lookup_enum('WTemp')
+        water_temp = self.lookup_enum('WaterTemp')
         if water_temp == '-':
             return 'OFF'
         return WASHERWATERTEMP(water_temp)
