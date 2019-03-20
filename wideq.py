@@ -2105,9 +2105,9 @@ class DryerStatus(object):
         run_state = DRYERSTATE(self.lookup_enum('State'))
         return run_state != DRYERSTATE.OFF
     
-    @property
-    def run_state(self):
-        return DRYERSTATE(self.lookup_enum('State'))
+#    @property
+#    def run_state(self):
+#        return DRYERSTATE(self.lookup_enum('State'))
     
     @property
     def pre_state(self):
