@@ -2396,13 +2396,13 @@ class WasherStatus(object):
     def reservetime_min(self):
         return self.data['Reserve_Time_M']
 
-    @property
-    def current_course(self):
-        course = self.lookup_reference('Course')
-        if course == '-':
-            return 'OFF'
-        else:
-            return course
+#    @property
+#    def current_course(self):
+#        course = self.lookup_reference('Course')
+#        if course == '-':
+#            return 'OFF'
+#        else:
+#            return course
 
     @property
     def error_state(self):
