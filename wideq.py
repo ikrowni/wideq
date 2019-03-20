@@ -1141,8 +1141,8 @@ class ModelInfo(object):
         if not self.value_type(key):
             return str(value)
                 
-        options = self.value(key).options
-        return options[value]
+#        options = self.value(key).options
+#        return options[value]
 
     def range_name(self, key):
         """Look up the value of a RangeValue.  Not very useful other than for comprehension
@@ -2344,8 +2344,8 @@ class WasherStatus(object):
         self.washer = washer
         self.data = data
     
-    def lookup_enum(self, key):
-        return self.washer.model.enum_name(key, self.data[key])
+#    def lookup_enum(self, key):
+#        return self.washer.model.enum_name(key, self.data[key])
     
     def lookup_reference(self, key):
         return self.washer.model.reference_name(key, self.data[key])
@@ -2368,9 +2368,9 @@ class WasherStatus(object):
     def run_state(self):
         return WASHERSTATE(self.lookup_enum('State'))
 
-    @property
-    def pre_state(self):
-        return WASHERSTATE(self.lookup_enum('PreState'))
+#    @property
+#    def pre_state(self):
+#        return WASHERSTATE(self.lookup_enum('PreState'))
     
     @property
     def remaintime_hour(self):
