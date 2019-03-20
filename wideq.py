@@ -2404,15 +2404,15 @@ class WasherStatus(object):
 #        else:
 #            return course
 
-    @property
-    def error_state(self):
-        error = self.lookup_reference('Error')
-        if error == '-':
-            return 'OFF'
-        elif error == 'No Error':
-            return 'NO_ERROR'
-        else:
-            return WASHERERROR(error)
+#    @property
+#    def error_state(self):
+#        error = self.lookup_reference('Error')
+#        if error == '-':
+#            return 'OFF'
+#        elif error == 'No Error':
+#            return 'NO_ERROR'
+#        else:
+#            return WASHERERROR(error)
 
     @property
     def wash_option_state(self):
