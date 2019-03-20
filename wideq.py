@@ -2347,8 +2347,8 @@ class WasherStatus(object):
 #    def lookup_enum(self, key):
 #        return self.washer.model.enum_name(key, self.data[key])
     
-    def lookup_reference(self, key):
-        return self.washer.model.reference_name(key, self.data[key])
+#    def lookup_reference(self, key):
+#        return self.washer.model.reference_name(key, self.data[key])
     
     def lookup_bit(self, key, index):
         bit_value = int(self.data[key])
@@ -2396,13 +2396,13 @@ class WasherStatus(object):
     def reservetime_min(self):
         return self.data['Reserve_Time_M']
 
-    @property
-    def current_course(self):
-        course = self.lookup_reference('Course')
-        if course == '-':
-            return 'OFF'
-        else:
-            return course
+#    @property
+#    def current_course(self):
+#        course = self.lookup_reference('Course')
+#        if course == '-':
+#            return 'OFF'
+#        else:
+#            return course
 
     @property
     def error_state(self):
