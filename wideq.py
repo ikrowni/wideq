@@ -2020,9 +2020,9 @@ class TEMPCONTROL(enum.Enum):
     
 class ECOHYBRID(enum.Enum):
     
-    ECO = "@WM_DRY24_ECO_HYBRID_ECO_W"
-    NORMAL = "@WM_DRY24_ECO_HYBRID_NORMAL_W"
-    TURBO = "@WM_DRY24_ECO_HYBRID_TURBO_W"
+    ECO = "@WM_DRY27_ECO_HYBRID_ECO_W"
+    NORMAL = "@WM_DRY27_ECO_HYBRID_NORMAL_W"
+    TURBO = "@WM_DRY27_ECO_HYBRID_TURBO_W"
 
 class DRYERERROR(enum.Enum):
     
@@ -2364,9 +2364,9 @@ class WasherStatus(object):
         run_state = WASHERSTATE(self.lookup_enum('State'))
         return run_state != WASHERSTATE.OFF
         
-    @property
-    def run_state(self):
-        return WASHERSTATE(self.lookup_enum('State'))
+#    @property
+#    def run_state(self):
+#        return WASHERSTATE(self.lookup_enum('State'))
 
 #    @property
 #    def pre_state(self):
