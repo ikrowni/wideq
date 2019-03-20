@@ -2231,7 +2231,7 @@ class WASHERSTATE(enum.Enum):
     RINSING = "@WM_STATE_RINSING_W"
     SPINNING = "@WM_STATE_SPINNING_W"
     SOAK = "@WM_STATE_SOAK_W"
-    COMPLETE = "@WM_STATE_COMPLETE_W"
+    COMPLETE = "@WM_STATE_END_W"
     FIRMWARE = "@WM_STATE_FIRMWARE_W"
     SMART_DIAGNOSIS = "@WM_STATE_SMART_DIAGNOSIS_W"
 
@@ -2264,42 +2264,42 @@ class WASHERSPINSPEED(enum.Enum):
 class WASHERRINSECOUNT(enum.Enum):
     
     NO_SELECT = "@CP_OFF_EN_W"
-    ONE = "@WM_KR_TT27_WD_WIFI_OPTION_RINSECOUNT_1_W"
-    TWO = "@WM_KR_TT27_WD_WIFI_OPTION_RINSECOUNT_2_W"
-    THREE = "@WM_KR_TT27_WD_WIFI_OPTION_RINSECOUNT_3_W"
-    FOUR = "@WM_KR_TT27_WD_WIFI_OPTION_RINSECOUNT_4_W"
-    FIVE = "@WM_KR_TT27_WD_WIFI_OPTION_RINSECOUNT_5_W"
+    ONE = "@WM_OPTION_RINSE_COUNT_0_TIME_W"
+    TWO = "@WM_OPTION_RINSE_COUNT_1_TIME_W"
+    THREE = "@WM_OPTION_RINSE_COUNT_2_TIME_W"
+    FOUR = "@WM_OPTION_RINSE_COUNT_3_TIME_W"
+    FIVE = "@WM_OPTION_RINSE_COUNT_3_TIME_W"
 
 class WASHERDRYLEVEL(enum.Enum):
     
     NO_SELECT = "@WM_TERM_NO_SELECT_W"
-    WIND = "@WM_KR_TT27_WD_WIFI_OPTION_DRYLEVEL_WIND_W"
-    TURBO = "@WM_KR_TT27_WD_WIFI_OPTION_DRYLEVEL_TURBO_W"
-    TIME_30 = "@WM_KR_TT27_WD_WIFI_OPTION_DRYLEVEL_TIME_30_W"
-    TIME_60 = "@WM_KR_TT27_WD_WIFI_OPTION_DRYLEVEL_TIME_60_W"
-    TIME_90 = "@WM_KR_TT27_WD_WIFI_OPTION_DRYLEVEL_TIME_90_W"
-    TIME_120 = "@WM_KR_TT27_WD_WIFI_OPTION_DRYLEVEL_TIME_120_W"
-    TIME_150 = "@WM_KR_TT27_WD_WIFI_OPTION_DRYLEVEL_TIME_150_W"
+    WIND = "@WM_MX_OPTION_DRY_WIND_W"
+    TURBO = "@WM_MX_OPTION_DRY_TURBO_W"
+    TIME_30 = "@WM_OPTION_DRY_TIME_30_W"
+    TIME_60 = "@WM_OPTION_DRY_TIME_60_W"
+    TIME_90 = "@WM_OPTION_DRY_TIME_90_W"
+    TIME_120 = "@WM_OPTION_DRY_TIME_120_W"
+    TIME_150 = "@WM_OPTION_DRY_TIME_150_W"
 
 class WASHERERROR(enum.Enum):
     
-    ERROR_dE2 = "@WM_KR_TT27_WD_WIFI_ERROR_DE2"
-    ERROR_IE = "@WM_KR_TT27_WD_WIFI_ERROR_IE"
-    ERROR_OE = "@WM_KR_TT27_WD_WIFI_ERROR_OE"
-    ERROR_UE = "@WM_KR_TT27_WD_WIFI_ERROR_UE"
-    ERROR_FE = "@WM_KR_TT27_WD_WIFI_ERROR_FE"
-    ERROR_PE = "@WM_KR_TT27_WD_WIFI_ERROR_PE"
-    ERROR_tE = "@WM_KR_TT27_WD_WIFI_ERROR_TE"
-    ERROR_LE = "@WM_KR_TT27_WD_WIFI_ERROR_LE"
-    ERROR_CE = "@WM_KR_TT27_WD_WIFI_ERROR_CE"
-    ERROR_dHE = "@WM_KR_TT27_WD_WIFI_ERROR_DHE"
-    ERROR_PF = "@WM_KR_TT27_WD_WIFI_ERROR_PF"
-    ERROR_FF = "@WM_KR_TT27_WD_WIFI_ERROR_FF"
-    ERROR_dCE = "@WM_KR_TT27_WD_WIFI_ERROR_DCE"
-    ERROR_EE = "@WM_KR_TT27_WD_WIFI_ERROR_EE"
-    ERROR_PS = "@WM_KR_TT27_WD_WIFI_ERROR_PS"
-    ERROR_dE1 = "@WM_KR_TT27_WD_WIFI_ERROR_DE1"
-    ERROR_LOE = "@WM_KR_TT27_WD_WIFI_ERROR_LOE"
+    ERROR_dE2 = "@WM_US_FL_ERROR_DE2_W"
+    ERROR_IE = "@WM_US_FL_ERROR_IE_W"
+    ERROR_OE = "@WM_US_FL_ERROR_OE_W"
+    ERROR_UE = "@WM_US_FL_ERROR_UE_W"
+    ERROR_FE = "@WM_US_FL_ERROR_FE_W"
+    ERROR_PE = "@WM_US_FL_ERROR_PE_W"
+    ERROR_tE = "@WM_US_FL_ERROR_TE_W"
+    ERROR_LE = "@WM_US_FL_ERROR_LE_W"
+    ERROR_CE = "@WM_US_FL_ERROR_CE_W"
+    ERROR_dHE = "@WM_US_FL_ERROR_DHE_W"
+    ERROR_PF = "@WM_US_FL_ERROR_PF_W"
+    ERROR_FF = "@WM_US_FL_ERROR_FF_W"
+    ERROR_dCE = "@WM_US_FL_ERROR_DCE_W"
+    ERROR_EE = "@WM_US_FL_ERROR_EE_W"
+    ERROR_PS = "@WM_WW_FL_ERROR_PS_W"
+    ERROR_dE1 = "@WM_US_FL_ERROR_DE1_W"
+    ERROR_LOE = "@WM_US_FL_WD_WIFI_ERROR_LOE"
 
 
 class WasherDevice(Device):
@@ -2347,8 +2347,8 @@ class WasherStatus(object):
     def lookup_enum(self, key):
         return self.washer.model.enum_name(key, self.data[key])
     
-#    def lookup_reference(self, key):
-#        return self.washer.model.reference_name(key, self.data[key])
+    def lookup_reference(self, key):
+        return self.washer.model.reference_name(key, self.data[key])
     
     def lookup_bit(self, key, index):
         bit_value = int(self.data[key])
@@ -2396,23 +2396,23 @@ class WasherStatus(object):
     def reservetime_min(self):
         return self.data['Reserve_Time_M']
 
-#    @property
-#    def current_course(self):
-#        course = self.lookup_reference('Course')
-#        if course == '-':
-#            return 'OFF'
-#        else:
-#            return course
+    @property
+    def current_course(self):
+        course = self.lookup_reference('Course')
+        if course == '-':
+            return 'OFF'
+        else:
+            return course
 
-#    @property
-#    def error_state(self):
-#        error = self.lookup_reference('Error')
-#        if error == '-':
-#            return 'OFF'
-#        elif error == 'No Error':
-#            return 'NO_ERROR'
-#        else:
-#            return WASHERERROR(error)
+    @property
+    def error_state(self):
+        error = self.lookup_reference('Error')
+        if error == '-':
+            return 'OFF'
+        elif error == 'No Error':
+            return 'NO_ERROR'
+        else:
+            return WASHERERROR(error)
 
     @property
     def wash_option_state(self):
